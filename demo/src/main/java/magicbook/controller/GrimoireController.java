@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/grimoire")
 public class GrimoireController {
+
     @Autowired
     private GrimoireRepository grimoireRepository;
     @Autowired
@@ -42,9 +43,9 @@ public class GrimoireController {
     }
 
     @PutMapping("/{id}")
-    public GrimoireDto Put(@PathVariable Integer id, @RequestBody GrimoireDto novoGrimoireDto){
+    public GrimoireDto Put(@PathVariable Integer id, @RequestBody GrimoireDto newGrimoireDto){
         Grimoire grimoire = grimoireRepository.findById(id).orElseThrow(() -> new RuntimeException("Grimoire not found!"));
-        grimoireMapper.updateGrimoireFromDto(novoGrimoireDto, grimoire);
+        grimoireMapper.updateGrimoireFromDto(newGrimoireDto, grimoire);
         grimoireRepository.save(grimoire);
 
         return grimoireMapper.toDto(grimoire);

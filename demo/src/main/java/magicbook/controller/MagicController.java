@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/magics")
 public class MagicController {
+
     @Autowired
     private MagicRepository magicRepository;
     @Autowired
@@ -42,9 +43,9 @@ public class MagicController {
     }
 
     @PutMapping("/{id}")
-    public MagicDto Put(@PathVariable Integer id, @RequestBody MagicDto novoMagicDto){
+    public MagicDto Put(@PathVariable Integer id, @RequestBody MagicDto newMagicDto){
         Magic magic = magicRepository.findById(id).orElseThrow(() -> new RuntimeException("Magic not found!"));
-        magicMapper.updateMagicFromDto(novoMagicDto, magic);
+        magicMapper.updateMagicFromDto(newMagicDto, magic);
         magicRepository.save(magic);
 
         return magicMapper.toDto(magic);

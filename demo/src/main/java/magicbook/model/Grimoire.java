@@ -25,7 +25,7 @@ public class Grimoire {
 
     private String description;
 
-    @OneToMany(mappedBy = "magics", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "grimoire", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Magic> listOfMagics;
 
 
