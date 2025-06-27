@@ -1,5 +1,7 @@
 package magicbook.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import magicbook.dto.CreateGrimoireDto;
 import magicbook.dto.GrimoireDto;
 import magicbook.mappper.GrimoireMapper;
@@ -34,6 +36,7 @@ public class GrimoireController {
                 .orElseThrow(() -> new RuntimeException("Grimoire not found!"));
         return grimoireMapper.toDto(grimoire);
     }
+
 
     @PostMapping
     public GrimoireDto Post(@RequestBody CreateGrimoireDto createGrimoireDto){

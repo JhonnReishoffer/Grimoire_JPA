@@ -33,6 +33,6 @@ public class Magic {
 
     @ManyToOne
     @JoinColumn(name = "grimoire_id")
-    private Grimoire grimoire; // Relação adicionada
+    private Grimoire grimoire;
 
 }
